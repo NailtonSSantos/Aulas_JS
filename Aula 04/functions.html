@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function escreva(){
+            console.log('Olá, Programador!')
+        }
+
+        escreva();
+
+        //FUNÇÕES CUSTOMIZADA, TEM QUE PASSAR O PARÂMETRO
+        function escrevaMensagem(mensagem){
+            console.log(mensagem);
+        }
+
+        escrevaMensagem('Hello World');
+        escrevaMensagem('Nailton Silva')
+
+        //FUNÇÕES QUE RETORNAM VALORES
+       function soma(a, b){
+        return a+b;
+       }
+
+       /*var resultadoSoma = soma(10, 5);
+       console.log(resultadoSoma);*/
+
+       console.log(soma(10, 5));
+
+       function somaTudo(numeros){
+        var total = 0;
+
+        for(var num of numeros){
+            total = total + num;
+        }
+
+        return total;
+       }
+
+       var arrayNumeros = [3, 5, 7, 10, 9, 12, 5];
+       var resultado = somaTudo(arrayNumeros);
+       console.log(`Soma Tudo - ${resultado}`);
+
+       //PARAMETRO REST - NÃO SABE QUANTOS PARÂMETROS VAI TER, ENTÃO ELE SALVA OS PARÂMETROS ADICIONAIS EM UM ARRAY
+       function escrevaEndereco(rua, cidade, pais, ...complementos){
+        console.log(rua);
+        console.log(cidade);
+        console.log(pais);
+
+        console.log(complementos);
+       }
+
+       escrevaEndereco('Rua Joaquim', 'Rondonópolis', 'Brasil', 'Estado MT', 'Casa n 807', 'CEP 78735021');
+
+       //FUNÇÕES AOTOINVOCÁVEIS
+       (function autoExecuta(nome){
+            console.log(nome);
+       }('Nailton Silva'));
+       //SERVE PRA PROTEGER UMA VARIÁVEL OU FUNÇÃO, POR TER O MESMO NOME DE OUTRA FUNÇÃO
+
+       //UMA VARIÁVEL TAMBÉM PODE RECEBER UMA FUNÇÃO, DAÍ ELA SE TORNA UMA FUNÇÃO
+       var subtraiDoisNumeros = function subtrai(a, b){
+        return a - b;
+       }
+
+       console.log(subtraiDoisNumeros(10, 3));
+       //A FUNÇÃO SUBTRAI NÃO PODE SER CHAMADA DIRETO, POIS PERTENCE A VARIÁVEL
+       
+       
+       //SENDO ASSIM POSSO USAR UMA FUNÇÃO ANÔNIMA
+        var subtraiTresNumeros = function(a, b, c){
+            return a - b - c;
+        }
+        console.log(subtraiTresNumeros(15, 3, 6));
+
+        (function (nome){
+            console.log(nome);
+       }('Nailton Silva'));
+
+       //FUNÇÕES DE CALLBACK - Funções que viram parâmetro de outra função. 
+       //estratégia para inserir uma customização ou alteração do valor final
+
+       function somaCallback(a, b, funCallback){
+            return funCallback(a + b);
+       }
+
+        /*console.log(somaCallback(10, 3, function(total){
+            return total * 2;
+       }))*/
+       var multiplica = function(total){
+        return total * 2;
+       }
+       
+       console.log('Total Callback', somaCallback(10, 3, multiplica));
+
+       console.log(somaCallback(5, 2, function(total){
+        return total + 20;
+       }))
+
+
+
+       //VALOR DEFAULT PARA FUNÇÕES
+       function escrevaNome(nome = 'Nailton', idade = 25){
+        console.log(nome);
+        console.log(idade);
+       }
+
+       escrevaNome();
+       escrevaNome('João', 28);
+
+
+    </script>
+</body>
+</html>

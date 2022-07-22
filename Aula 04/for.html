@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR</title>
+</head>
+<body>
+    <script>
+    var numAleatorios = [3, 5, 10, 2, 19, 21, 13];
+        for (var cont = 0; cont < numAleatorios.length; cont++){
+        console.log(numAleatorios[cont]);
+    }
+
+    for (var i = numAleatorios.length - 1; i >= 0; i--){
+        console.log(`${numAleatorios[i]}`)
+    }
+
+    for (var i =0; i < 50; i++){
+        if(i %2 !== 0){
+            continue; //Volta pra o Loop e não imprime na tela, Dessa forma só imprime os pares
+        }
+        console.log('utilizando continue', i);
+    }
+
+    for (var num of numAleatorios){
+        console.log(`for of ${num}`)
+    }
+
+    //MATRIZ
+    for (var i = 1; i <= 5; i++){
+        for (var j = 1; j <= 5; j++){
+            console.log(`i: ${i}; j: ${j}`)
+        }
+    }
+    </script>
+</body>
+</html>
